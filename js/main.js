@@ -10,7 +10,7 @@ window.addEventListener("load",()=>{
              
               accounts =  await window.ethereum.request({ method: 'eth_accounts' });
             // Or connect to a node
-          
+            console.log(accounts);
           return accounts;
         } 
         
