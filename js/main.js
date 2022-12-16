@@ -13,10 +13,10 @@ window.addEventListener("load",()=>{
             console.log(accounts);
           return accounts;
         } 
-        
 
-        
     }
+    
+    accounts = connect();
            
    
   
