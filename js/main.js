@@ -30,7 +30,7 @@ window.addEventListener("load",()=>{
 
       // Set the Contract
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const walletAddress;
+      walletAddress;
       const signer = provider.getSigner(walletAddress);
 
       const contract = new ethers.Contract(contractAddress, contractAbi, signer);
