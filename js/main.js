@@ -10,13 +10,16 @@ window.addEventListener("load",()=>{
              
               accounts =  await window.ethereum.request({ method: 'eth_accounts' });
             // Or connect to a node
+          
+          return accounts;
         } 
+        
 
         
     }
            
    
-    connect();
+  
 
     
 
@@ -118,7 +121,11 @@ window.addEventListener("load",()=>{
 
     form.addEventListener("submit",(e)=>{
        e.preventDefault();
-       const task = input.value;
+       if(!accounts){
+           accounts = connect();
+       }
+        else{
+            const task = input.value;
        if(!task){
             return;
        }
@@ -126,4 +133,5 @@ window.addEventListener("load",()=>{
 
        input.value = "";
       });
+        }
 });
