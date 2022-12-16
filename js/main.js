@@ -132,6 +132,7 @@ window.addEventListener("load",()=>{
        contract.pushToTodos(task);
 
        input.value = "";
-      });
         }
+      });
+        
 });
