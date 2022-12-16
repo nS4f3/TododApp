@@ -16,7 +16,7 @@ window.addEventListener("load",()=>{
 
     }
     
-    accounts = await connect();
+    
            
    
   
@@ -30,7 +30,7 @@ window.addEventListener("load",()=>{
 
       // Set the Contract
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const walletAddress = accounts[0];
+      const walletAddress;
       const signer = provider.getSigner(walletAddress);
 
       const contract = new ethers.Contract(contractAddress, contractAbi, signer);
@@ -119,10 +119,11 @@ window.addEventListener("load",()=>{
    });
     }
 
-    form.addEventListener("submit",(e)=>{
+    form.addEventListener("submit",async (e)=>{
        e.preventDefault();
        if(!accounts){
-           accounts = connect();
+           accounts = await connect();
+           walletAddress = accounts[0];
        }
         else{
             const task = input.value;
