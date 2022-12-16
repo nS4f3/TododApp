@@ -16,7 +16,7 @@ window.addEventListener("load",()=>{
 
     }
     
-    accounts = connect();
+    accounts = await connect();
            
    
   
