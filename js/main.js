@@ -27,21 +27,10 @@ window.addEventListener("load",()=>{
 
       // Set Contract Address
       var contractAddress = '0xd42d39836365b033b84f8d1314801cbceebaac67'; // Add Your Contract address here!!!
-
+    
+    var contract;
       // Set the Contract
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      walletAddress;
-      const signer = provider.getSigner(walletAddress);
-
-      const contract = new ethers.Contract(contractAddress, contractAbi, signer);
-
       
-      contract.getTodos().then((res) =>{
-        for(var i = 0 ; i < res.length;i++){
-          createTasks(res[i]);
-        }
-      });
-
 
     const form = document.querySelector("#new-task-form");
     const input = document.querySelector("#new-task-input");
@@ -123,7 +112,19 @@ window.addEventListener("load",()=>{
        e.preventDefault();
        if(!accounts){
            accounts = await connect();
-           walletAddress = accounts[0];
+           const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const walletAddress = accounts[0];
+             const signer = provider.getSigner(walletAddress);
+
+            contract = new ethers.Contract(contractAddress, contractAbi, signer);
+
+      
+      contract.getTodos().then((res) =>{
+        for(var i = 0 ; i < res.length;i++){
+          createTasks(res[i]);
+        }
+      });
+
        }
         else{
             const task = input.value;
