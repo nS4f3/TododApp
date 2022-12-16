@@ -8,7 +8,7 @@ window.addEventListener("load",()=>{
     async function connect(){
       if(typeof window.ethereum !== 'undefined') {
              
-              accounts =  window.ethereum.request({ method: 'eth_accounts' });
+              accounts =  await window.ethereum.request({ method: 'eth_accounts' });
             // Or connect to a node
         } 
 
