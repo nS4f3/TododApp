@@ -12,11 +12,11 @@ window.addEventListener("load",()=>{
             // Or connect to a node
         } 
 
-        return accounts;
+        
     }
            
    
-    accounts = connect();
+    connect();
 
     
 
