@@ -3,6 +3,6 @@ module.exports = {
 
     files : ["./**/*.{html,htm,css,js}"],
     server : {
-        baseDir:["./Site","./build/contracts"]
+        baseDir:["./Site/html","./build/contracts"]
     }
 }
